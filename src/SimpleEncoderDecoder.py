@@ -5,16 +5,12 @@ class SimpleEncoderDecoder(EncoderDecoderBase):
     def __init__(self, data: str):
         super().__init__(data)
 
-        self.tokens = self.tokenize()
-        self.token_map, self.r_token_map = self.create_token_map()
-
     def tokenize(self):
-        tokens = sorted(list(set(self.data)))
-        return tokens
+        return sorted(list(set(self.data)))
 
     def create_token_map(self):
-        token_map = {ch: i for i, ch in enumerate(self.tokens)}
-        r_token_map = {i: ch for i, ch in enumerate(self.tokens)}
+        token_map = {ch: i for i, ch in enumerate(self._tokens)}
+        r_token_map = {i: ch for i, ch in enumerate(self._tokens)}
         return token_map, r_token_map
 
     def encode(self, text):
