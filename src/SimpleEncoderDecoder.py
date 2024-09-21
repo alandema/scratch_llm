@@ -1,7 +1,7 @@
-from TokenizerBase import TokenizerBase
+from EncoderDecoderBase import EncoderDecoderBase
 
 
-class SimpleTokenizer(TokenizerBase):
+class SimpleEncoderDecoder(EncoderDecoderBase):
     def __init__(self, data: str):
         super().__init__(data)
 
@@ -26,10 +26,10 @@ class SimpleTokenizer(TokenizerBase):
 
 if __name__ == "__main__":
 
-    with open('src\\data\\text.txt', 'r', encoding='utf-8') as f:
+    with open('.\\data\\text.txt', 'r', encoding='utf-8') as f:
         text = f.read()
 
-    tk = SimpleTokenizer(text)
+    tk = SimpleEncoderDecoder(text)
 
     encoded = tk.encode('hii there')
     print(encoded)

@@ -1,8 +1,8 @@
 
-class TokenizerBase(object):
+class EncoderDecoderBase(object):
     def __init__(self, data):
         self.data = data
 
 
 if __name__ == "__main__":
-    print(TokenizerBase("hello worldsss"))
+    print(EncoderDecoderBase("hello worldsss"))
