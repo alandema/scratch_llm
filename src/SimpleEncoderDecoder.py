@@ -1,4 +1,5 @@
 from EncoderDecoderBase import EncoderDecoderBase
+import torch
 
 
 class SimpleEncoderDecoder(EncoderDecoderBase):
@@ -14,10 +15,10 @@ class SimpleEncoderDecoder(EncoderDecoderBase):
         return token_map, r_token_map
 
     def encode(self, text):
-        return [self.token_map[ch] for ch in text]
+        return torch.tensor([self.token_map[ch] for ch in text], dtype=torch.long)
 
     def decode(self, encoded):
-        return ''.join([self.r_token_map[i] for i in encoded])
+        return ''.join([self.r_token_map[i] for i in encoded.tolist()])
 
 
 if __name__ == "__main__":
